@@ -24,6 +24,7 @@ $app->post('/cvs', function (Request $request, Response $response, array $args) 
     // Sample log message
     $this->logger->info("POST /cvs");
 
+    /* This piece of code is too repetitive, can be easily fixed with a loop */
     $address = new Address();
     $address->street = $request->getParam('street');
     $address->nr = $request->getParam('nr');
@@ -72,6 +73,7 @@ $app->post('/cvs', function (Request $request, Response $response, array $args) 
     $user->computerskills_id = $computerskill->id;
     $user->otherskills_id = $otherskill->id;
     $user->save();
+    /* This piece of code is too repetitive, can be easily fixed with a loop */
     
     // Render index view
     return $this->renderer->render($response, 'overview.phtml', $args);
